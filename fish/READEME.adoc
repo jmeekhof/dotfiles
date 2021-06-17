@@ -1,0 +1,21 @@
+= DOTFILES
+Keep your configurations organized and source controlled.
+
+== Use
+This takes advantage of https://www.gnu.org/software/stow/[GNU Stow] in order
+to create symbolic links from this repo to where the config files are expected
+to be located. This is handy because it gives me one repository to manage
+without writing complicated scripts to put the files where they belong.
+
+The inspiration for this repository was obtained from
+http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html[this
+article].
+
+
+
+[source,shell]
+----
+stow nvim
+----
+
+This would sym link all the configs necessary for nvim in the appropriate places.
