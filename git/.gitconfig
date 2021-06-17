@@ -1,0 +1,44 @@
+[user]
+    name = Joshua Meekhof
+    email = jmeekhof@twotheleft.com
+    signingKey = 0xE652FD21A4CEAFB9
+[alias]
+    st = status
+    df = diff
+    co = checkout
+    ci = commit
+    lg = log -p
+    lol = log --graph --oneline
+    lola = log --graph --oneline --all
+    lsa = log --graph --oneline --simplify-by-decoration --all
+[color]
+    diff = auto
+[diff]
+    submodule = log
+[push]
+    default = simple
+[core]
+    excludesfile = ~/.gitignore_global
+    editor = nvim
+[credential]
+    helper = !aws codecommit credential-helper $@
+    UseHttpPath = true
+[commit]
+    gpgsign = true
+[gpg]
+    program = /usr/local/bin/gpg
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[http]
+	cookiefile = ~/.gitcookies
+[pull]
+	rebase = true
+[cola]
+	spellcheck = false
+[init]
+	defaultBranch = main
+[include]
+  path = .gitconfig_local
