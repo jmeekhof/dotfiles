@@ -1,0 +1,30 @@
+# set fish_function_path $fish_function_path "/usr/local/lib/python3.7/site-packages/powerline/bindings/fish"
+# powerline-setup
+
+alias vim=nvim
+
+set -g theme_date_format "+%Y-%m-%d %H:%M"
+
+set -x GOPATH $HOME/go
+set -x GOBIN $GOPATH/bin
+set -gx PATH '/Users/jmeekho/.jenv/shims' $PATH
+set -gx JENV_SHELL fish
+set -gx JENV_LOADED 1
+set -e JAVA_HOME
+set -x FZF_DEFAULT_COMMAND "rg --files --hidden"
+source '/usr/local/Cellar/jenv/0.5.2/libexec/libexec/../completions/jenv.fish'
+jenv rehash 2>/dev/null
+function jenv
+  set command $argv[1]
+  set -e argv[1]
+
+  switch "$command"
+  case enable-plugin rehash shell shell-options
+    source (jenv "sh-$command" $argv|psub)
+  case '*'
+    command jenv "$command" $argv
+  end
+end
+# set -g fish_user_paths "/usr/local/opt/openjdk@11/bin" $fish_user_paths
+status --is-interactive; and pyenv init - | source
+status --is-interactive; and pyenv virtualenv-init - | source
