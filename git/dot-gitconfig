@@ -7,12 +7,14 @@
     df = diff
     co = checkout
     ci = commit
+    l =	log --graph --pretty=format:'%h - %d %s (%cr) <%an>'
     lg = log -p
     lol = log --graph --oneline
     lola = log --graph --oneline --all
     lsa = log --graph --oneline --simplify-by-decoration --all
 [color]
     diff = auto
+    ui = true
 [diff]
     submodule = log
 [push]
