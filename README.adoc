@@ -15,7 +15,7 @@ article].
 
 [source,shell]
 ----
-stow nvim
+stow --dotfiles nvim
 ----
 
 This would sym link all the configs necessary for nvim in the appropriate places.
