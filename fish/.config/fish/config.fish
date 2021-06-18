@@ -8,9 +8,6 @@ set -x GOBIN $GOPATH/bin
 set -x FZF_DEFAULT_COMMAND "rg --files --hidden --follow --glob '!.git'"
 set -x MANPAGER 'nvim +Man!'
 
-set PATH $HOME/.jenv/bin $PATH
-status --is-interactive; and source (jenv init - | psub )
-
 # set -g fish_user_paths "/usr/local/opt/openjdk@11/bin" $fish_user_paths
 status --is-interactive; and pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
