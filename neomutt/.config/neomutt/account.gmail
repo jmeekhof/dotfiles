@@ -1,0 +1,13 @@
+# -*-neomuttrc-*-
+# vim = neomuttrc
+set  imap_user  =  "jmeekhof@gmail.com"
+set  from       =  "jmeekhof@gmail.com"
+set  realname   =  "Josh Meekhof"
+set  hostname   =  "gmail.com"
+set  folder     =  "imaps://imap.gmail.com:993/"
+set  spoolfile  =  "+INBOX"
+set  postponed  =  "+[Gmail]/Drafts"
+set  record     =  "+[Gmail]/Sent Mail"
+set  trash      =  "+[Gmail]/Trash"
+set  smtp_url   =  "smtp://jmeekhof@smtp.gmail.com:587"
+source "gpg -d ~/.config/neomutt/password.gmail.gpg |"

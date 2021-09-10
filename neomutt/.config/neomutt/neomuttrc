@@ -1,95 +1,40 @@
-# vim: filetype=muttrc
-#
-#
-set  folder = ~/Mail
-set  alias_file        =  ~/.mutt/alias
-set  header_cache      =  ~/.mutt/cache
-set  message_cachedir  =  ~/.mutt/cache/bodies  #  where to store bodies
-set  certificate_file  =  ~/.mutt/certificates  #  where to store certs
-set  mailcap_path      =  ~/.mutt/mailcap       #  entries for filetypes
-set  tmpdir            =  ~/.mutt/temp          #  where to keep temp files
-set  sig_on_top        =  yes
-set  signature         =  ~/.mutt/signature     #  my signature file
+set  ssl_force_tls     =  yes
+set  abort_nosubject   =  no
+set  mail_check        =  60
+set  timeout           =  10
+set  sort              =  "reverse-date-received"
+set  signature         =  "~/.mutt/signature"
+set  copy              =  no
+set  header_cache      =  "~/.config/neomutt/cache"
+set  message_cachedir  =  "~/.config/neomutt/cache/bodies"
+set  editor            =  "vim -c \"set spell spelllang=en\""
 
-# Account Settings ----------------------------------
-set  mbox_type  =  Maildir
-set  spoolfile  =  "+work/Inbox"
-set  mbox       =  "+work/Archive"
-set  postponed  =  "+work/Drafts"
-set  recall     =  yes
-# Editor Settings -------------------------------------
-set  editor        = "nvim -c \"set spell spelllang=en\""
-set  trash         = "+work/Deleted\ Items"
-set  index_format  = "%4C %Z %D %-15.15L (%2e) %s"
-set  beep_new      = yes
-set  copy          = yes
-set  query_command = "lbdbq '%s'"
-set display_filter = "exec mutt_date_format.sh"
+# Set Header Options
+ignore *
+unignore from: to: cc: date: subject:
+unhdr_order *
+hdr_order from: to: cc: date: subject:
 
-
-mailboxes +work/Inbox \
-          +work/Archive \
-          +work/Sent \
-          +work/Junk \
-          +work/Deleted\ Items \
-          +work/Drafts \
-          +work/old
-fcc-hook ~A "+work/Archive" # Saves copies of outgoing mail to "Archive" folder
-# Notmuch setting ----------------------------------
-# Sidebar Patch --------------------------------------
-set sidebar_visible     = yes
-set sidebar_width       = 30
-# Sidebar Navigation ---------------------------------
-bind index,pager K  sidebar-prev
-bind index,pager J  sidebar-next
-bind index,pager L  sidebar-open
-# Status Bar -----------------------------------------
-set status_chars  = " *%A"
-set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
-
-# Sending mail ---------------------------------------
-set  use_from       =  "yes"
-set  envelope_from  =  "yes"
-set  sendmail       =  "/usr/local/bin/msmtp -a default"
-set  hostname       =  'optum.com'
-set  realname       =  'Meekhof, Josh'
-set  from           =  'joshua_meekhof@optum.com'
-set  envelope_from  =  yes
-set  hidden_host    =  yes
-set  use_domain     =  yes
-set  pager_stop     =  yes
-
-#GPG  Configuration
-set   crypt_use_gpgme           =  yes
-set   crypt_autosign            =  yes
-set   crypt_verify_sig          =  yes
-set   crypt_replyencrypt        =  yes
-set   crypt_replysignencrypted  =  yes
-set   pgp_default_key           =  "0xE652FD21A4CEAFB9"
-
-# Header Options -------------------------------------
-ignore *                                # ignore all headers
-unignore from: to: cc: date: subject:   # show only these
-unhdr_order *                           # some distros order things by default
-hdr_order from: to: cc: date: subject:  # and in this order
-
-# Set Header -----------------------------------------
-set hdrs = yes
-set edit_headers = yes
-# Index View Options ---------------------------------
+# Set editing headers
+set  hdrs             =  yes
+set  edit_headers     =  yes
 set  date_format      =  "%F %R"
 set  sort_aux         =  reverse-date-received
-set  sort             =  threads
-set  uncollapse_jump  #  don't collapse on an unread message
-set  sort_re          #  thread based on regex
+set  uncollapse_jump
+set  sort_re
 
-# Index Key Bindings ---------------------------------
-bind index g       first-entry
-bind index G        last-entry
-bind index R        group-reply
-bind index <space>  collapse-thread
-# Automatically open evil HTML ---------------------
 auto_view text/html
-auto_view text/calendar
-source $HOME/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
-source $HOME/.mutt/gpg.rc
+
+macro index <f4> '<sync-mailbox><enter-command>source ~/.config/neomutt/account.gmail<enter><change-folder>!<enter>
+macro index <f5> '<sync-mailbox><enter-command>source ~/.config/neomutt/account.twotheleft<enter><change-folder>!<enter>
+
+source "~/.config/neomutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc"
+source "~/.config/neomutt/gpg.rc"
+
+set  pgp_default_key           =  0xE652FD21A4CEAFB9
+set  crypt_use_gpgme           =  yes
+set  crypt_autosign            =  yes
+set  crypt_verify_sig          =  yes
+set  crypt_replyencrypt        =  yes
+set  crypt_replysignencrypted  =  yes
+

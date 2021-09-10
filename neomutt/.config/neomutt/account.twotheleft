@@ -1,0 +1,15 @@
+# vim = neomuttrc
+set  imap_user  =  "jmeekhof@twotheleft.com"
+set  from       =  "jmeekhof@twotheleft.com"
+set  realname   =  "Josh Meekhof"
+set  hostname   =  twotheleft.com
+set  folder     =  "imaps://imap.mail.us-west-2.awsapps.com:993/"
+set  spoolfile  =  "+INBOX"
+set  postponed  =  "+Drafts"
+set  record     =  "+Sent Mail"
+#set  trash      =  "+Trash"
+#set  smtp_url   =  "smtps://smtp.mail.us-west-2.awsapps.com:465"
+set  smtp_url   =  "smtps://jmeekhof@twotheleft.com@smtp.mail.us-west-2.awsapps.com"
+
+source "gpg -d ~/.config/neomutt/password.twotheleft.gpg |"
+
