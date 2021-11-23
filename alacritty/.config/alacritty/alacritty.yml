@@ -60,15 +60,21 @@ schemes:
 colors: *dark
 font:
   normal:
-    family: Droid Sans Mono for Powerline
+    #family: Droid Sans Mono for Powerline
+    family: monospace
     style: Regular
   bold:
-    family: Droid Sans Mono for Powerline
+    #family: Droid Sans Mono for Powerline
+    family: monospace
+    style: bold
   italic:
-    family: Droid Sans Mono for Powerline
+    #family: Droid Sans Mono for Powerline
+    family: monospace
+    style: italic
   size: 14
 window:
   dimensions:
-    columns: 180
-    lines: 100
-  decorations: buttonless
+    columns: 160
+    lines: 80
+  decorations: Full
+background_opacity: 0.97
