@@ -9,4 +9,10 @@ status --is-interactive; and pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jmeekho/google-cloud-sdk/path.fish.inc' ]; . '/Users/jmeekho/google-cloud-sdk/path.fish.inc'; end
+if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ];
+	. "$HOME/google-cloud-sdk/path.fish.inc"; 
+end
+
+if [ -f '/usr/share/fzf/shell/key-bindings.fish' ]; 
+	. '/usr/share/fzf/shell/key-bindings.fish';
+end
