@@ -1,0 +1,28 @@
+################################################################################
+# SwayWM outputs configuration
+# For a list of devices run: swaymst -t get_outputs
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg $wallpaper fill
+
+# Devices
+set $display_acer DP-3
+set $display_apple DP-4
+
+#Acer
+output $display_acer {
+	resolution 3440x1440@144.000Hz
+	position 0,0     
+	adaptive_sync on
+}
+#Apple
+output $display_apple {
+	resolution 1280x1024 
+	position 3440,0   
+}
+
+bindsym $mod+F7 output $display_acer disable
+bindsym $mod+F8 output $display_acer enable
+

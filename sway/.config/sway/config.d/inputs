@@ -1,0 +1,4 @@
+input type:keyboard {
+	xkb_layout us,us(dvorak)
+	xkb_options grp:alt_shift_toggle
+}
