@@ -15,15 +15,45 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term alacritty
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
+set $menu exec $term --class=launcher -e ~/.local/bin/sway-launcher-desktop.sh | xargs swaymsg exec --
+#bindsym $mod+d exec $menu
+
+gaps inner 4
+gaps outer 4
+smart_gaps on
+default_border pixel 1
+hide_edge_borders both
+
+set $gnome-schema org.gnome.desktop.interface
+
+font pango: Inconsolata 12
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/default.png fill
+#output * bg /usr/share/backgrounds/default.png fill
+output * bg /usr/share/backgrounds/fedora-workstation/calm.jpg fill
+
+#Acer
+output DP-3 {
+	resolution 3440x1440@144.000Hz
+	position 0,0     
+	adaptive_sync on
+}
+#Apple
+output DP-4 {
+	resolution 1280x1024 
+	position 3440,0   
+}
+#output "*" bg #676767 solid_color
+#
 #
 # Example configuration:
 #
@@ -205,9 +235,10 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    #status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
     #
     swaybar_command waybar
+    workspace_buttons yes
 
     colors {
         statusline #ffffff
@@ -216,4 +247,15 @@ bar {
     }
 }
 
+exec - -no-startup-id mpd
+
+set $mode_launcher Launcher
+bindsym $mod+o mode "$mode_launcher"
+
+mode "$mode_launcher" {
+	bindsym v exec virt-manager
+	bindsym Return mode "default"
+}
+
 include /etc/sway/config.d/*
+
