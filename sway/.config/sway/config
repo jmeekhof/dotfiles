@@ -4,12 +4,12 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
-#
 ################################################################################
 # Run Services
 ################################################################################
 exec mako
 exec waybar
+# exec - -no-startup-id mpd
 
 ################################################################################
 # Main Definitions
@@ -24,6 +24,8 @@ set $mod Mod4
 
 set $term alacritty
 set $menu exec $term --class=launcher -e ~/.local/bin/sway-launcher-desktop.sh | xargs swaymsg exec --
+#set $bmenu dmenu_path | bemenu | xargs swaymsg exec
+set $bmenu j4-dmenu-desktop  --dmenu='bemenu -i --nb "#3f3f3f" --nf "#dcdccc" --fn "pango:DejaVu Sans Mono 12"' --term='alacritty'
 for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
 
 set $wallpaper ~/.config/sway/images/wallpaper.jpg
@@ -82,24 +84,23 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
+#bar {
+#    position top
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     #status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
     #
-    swaybar_command waybar
-    workspace_buttons yes
+#    swaybar_command waybar
+#    workspace_buttons yes
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+#    colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
 
-exec - -no-startup-id mpd
 
 set $mode_launcher Launcher
 bindsym $mod+o mode "$mode_launcher"
@@ -110,6 +111,7 @@ mode "$mode_launcher" {
 }
 
 include ~/.config/sway/config.d/*
+include ~/.config/sway/config.d/custom/*
 include /etc/sway/config.d/*
 
 
