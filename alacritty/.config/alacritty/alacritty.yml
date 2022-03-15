@@ -77,4 +77,4 @@ window:
     columns: 160
     lines: 80
   decorations: Full
-background_opacity: 0.97
+  opacity: 0.97
