@@ -1,0 +1,9 @@
+# Bind "special keys"
+# xev tells you what the codes are
+
+bindcode 171 exec mpc next
+bindcode 172 exec mpc toggle
+bindcode 173 exec mpc prev
+
+# Volume control
+bindcode 121 exec pactl set-sink-mute `pactl list sinks short | grep RUNNING | awk '{print $1}' | head -n 1` toggle
