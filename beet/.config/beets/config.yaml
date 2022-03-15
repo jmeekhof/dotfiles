@@ -1,0 +1,17 @@
+directory:  /mnt/sonos
+
+plugins: fetchart mpdupdate chroma sonosupdate
+
+import:
+  move: yes
+
+fetchart:
+  auto: yes
+  art_filename: folder
+
+mpd:
+  host: localhost
+  port: 6600
+
+chroma:
+  auto: yes
