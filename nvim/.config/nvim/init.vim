@@ -11,10 +11,11 @@ Plug 'tpope/vim-repeat'
 
 " Git niceties 
 " Plug 'airblade/vim-gitgutter'
-Plug 'gregsexton/gitv'
+" Plug 'gregsexton/gitv'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'idanarye/vim-merginal', { 'branch': 'develop' }
 Plug 'tpope/vim-fugitive'
+Plug 'rbong/vim-flog'
 Plug 'liuchengxu/eleline.vim'
 
 " Color Schemes
@@ -148,7 +149,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Python setup
 let g:python_host_prog = '/Users/jmeekho/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/Users/jmeekho/.pyenv/versions/neovim3/bin/python'
+" let g:python3_host_prog = 'toolbox run -c nvim-python3 python3'
 
 " FZF Setup
 " Within the fzf window, open the file in a new tab
