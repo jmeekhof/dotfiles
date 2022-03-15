@@ -7,7 +7,8 @@ set  signature         =  "~/.mutt/signature"
 set  copy              =  no
 set  header_cache      =  "~/.config/neomutt/cache"
 set  message_cachedir  =  "~/.config/neomutt/cache/bodies"
-set  editor            =  "vim -c \"set spell spelllang=en\""
+# set  editor            =  "vim -c \"set spell spelllang=en\""
+# set  editor            =  vim
 
 # Set Header Options
 ignore *
@@ -23,7 +24,9 @@ set  sort_aux         =  reverse-date-received
 set  uncollapse_jump
 set  sort_re
 
-auto_view text/html
+#auto_view text/html
+
+macro index,pager U "<enter-command>set pipe_decode = yes<enter><pipe-message>urlview<enter><enter-command>set pipe_decode = no<enter>""view URLs"
 
 macro index <f4> '<sync-mailbox><enter-command>source ~/.config/neomutt/account.gmail<enter><change-folder>!<enter>
 macro index <f5> '<sync-mailbox><enter-command>source ~/.config/neomutt/account.twotheleft<enter><change-folder>!<enter>
