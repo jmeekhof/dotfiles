@@ -1,5 +1,4 @@
 input type:keyboard {
 	xkb_layout us,us(dvorak)
-	xkb_options grp:sclk_toggle,ctrl:nocaps,compose:prsc 
-
+	xkb_options grp:rctrl_rshift_toggle,ctrl:nocaps,compose:prsc 
 }
