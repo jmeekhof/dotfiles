@@ -1,95 +1,87 @@
 {
-  "layer": "top",
-  "position": "top",
-  "modules-left": [
-    "sway/workspaces",
-    "sway/mode",
-    "mpd"
-  ],
-  "modules-center": [
-    "sway/window"
-  ],
-  "modules-right": [
-    "sway/language",
-    "idle_inhibitor",
-    "network",
-    "pulseaudio",
-    "clock",
-    "custom/quit"
-  ],
-  "sway/mode": {
-    "format": " {}"
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar at the bottom of your screen
+    "height": 24, // Waybar height
+    // "width": 1366, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["pulseaudio","sway/language", "network", "cpu", "memory", "battery", "tray", "clock"],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1:web": "",
+            "2:code": "",
+            "3:term": "",
+            "4:work": "",
+            "5:music": "",
+            "6:docs": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
     },
-    "tooltip": false
-  },
-  "clock": {
-    "format": "{:%H:%M}",
-    "format-alt": "{:%a %b %d}",
-    "tooltip": false
-  },
-  "mpd": {
-    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}) ",
-    "format-disconnected": "Disconnected ",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-    "interval": 2,
-    "consume-icons": {
-      "on": " "
+    "sway/language": {
+    	"format": "{variant}",
+	"onclick": "swaymsg input type:keyboard xkb_switch_layout next",
     },
-    "random-icons": {
-      "off": "<span color=\"#f53c3c\"></span> ",
-      "on": " "
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
     },
-    "repeat-icons": {
-      "on": " "
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
     },
-    "single-icons": {
-      "on": "1 "
+    "clock": {
+        "format-alt": "{:%Y-%m-%d}"
     },
-    "state-icons": {
-      "paused": "",
-      "playing": ""
+    "cpu": {
+        "format": "{usage}% "
     },
-    "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)"
-  },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "{icon} {volume}%",
-    "format-muted": "",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "",
-        ""
-      ]
+    "memory": {
+        "format": "{}% "
     },
-    "scroll-step": 1,
-    "on-click": "pavucontrol"
-  },
-  "network": {
-    "format": "{ifname}",
-    "format-wifi": " {essid}",
-    "format-ethernet": " {ifname}",
-    "format-disconnected": "",
-    "tooltip-format-wifi": "{signalStrength}%",
-    "max-length": 20
-  },
-  "custom/quit": {
-    "format": "",
-    "on-click": "swaynag -f 'Terminus (TTF)'  -t warning -m 'Do you really want to exit sway?' -b 'Yes, exit sway' 'swaymsg exit'"
-  },
-  "sway/language": {
-    "format": " {long} {variant}"
-  }
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        // "interface": "wlp2s0", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-disconnected": "Disconnected ⚠"
+    },
+    "pulseaudio": {
+        //"scroll-step": 1,
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/spotify": {
+        "format": " {}",
+        "max-length": 40,
+        "interval": 30, // Remove this if your script is endless and write in loop
+        "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null", // Script in resources folder
+        "exec-if": "pgrep spotify"
+    }
 }
