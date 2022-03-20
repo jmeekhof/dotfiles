@@ -1,7 +1,7 @@
 [user]
     name = Joshua Meekhof
-    email = jmeekhof@twotheleft.com
-    signingKey = 0xE652FD21A4CEAFB9
+    email = josh@katanagraph.com
+    signingKey = 0x4B9A53570E6FF703
 [alias]
     st = status
     df = diff
