@@ -60,18 +60,24 @@ schemes:
 colors: *dark
 font:
   normal:
-    #family: Droid Sans Mono for Powerline
-    family: monospace
+    #family: DroidSansMono for Powerline
+    #family: DroidSansMono Nerd Font
+    family: DejaVu Sans Mono
+    #family: monospace
     style: Regular
   bold:
     #family: Droid Sans Mono for Powerline
-    family: monospace
+    family: DejaVu Sans Mono
+    #family: DroidSansMono Nerd Font
+    #family: monospace
     style: bold
   italic:
     #family: Droid Sans Mono for Powerline
-    family: monospace
+    family: DejaVu Sans Mono
+    #family: DroidSansMono Nerd Font
+    #family: monospace
     style: italic
-  size: 14
+  size: 8
 window:
   dimensions:
     columns: 160
