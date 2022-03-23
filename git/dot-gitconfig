@@ -19,12 +19,14 @@
     submodule = log
 [push]
     default = simple
+	recurseSubmodules = check
 [core]
     excludesfile = ~/.gitignore_global
     editor = nvim
 [credential]
     helper = !aws codecommit credential-helper $@
     UseHttpPath = true
+	help = libsecret
 [commit]
     gpgsign = true
 [gpg]
@@ -44,3 +46,7 @@
 	defaultBranch = main
 [include]
   path = .gitconfig_local
+[fetch]
+	recurseSubmodules = on-demand
+[submodule]
+	recurse = true
