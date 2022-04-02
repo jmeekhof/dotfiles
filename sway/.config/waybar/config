@@ -34,6 +34,7 @@
         //"custom/keyboard-layout",
         "battery",
 	"pulseaudio",
+	"idle_inhibitor",
         "tray",
         "clock#date",
         "clock#time"
@@ -43,6 +44,14 @@
     // -------------------------------------------------------------------------
     // Modules
     // -------------------------------------------------------------------------
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    },
+    "tooltip": false
+  },
 
     "battery": {
         "interval": 10,
