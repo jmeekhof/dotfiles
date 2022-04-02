@@ -20,19 +20,16 @@ output $display_laptop {
 
 #Acer
 output $display_acer {
-	#resolution 3840x2160@60.000Hz
-	resolution 3440x1440@100.000Hz
-	#resolution 1920x1080@120Hz
-
-	position 0,0     
+	resolution 3440x1440@144.000Hz
+	position 1280,0     
 	adaptive_sync on
 	scale 1
 }
 #Apple
-#output $display_apple {
-#	resolution 1280x1024 
-#	position 3440,0   
-#}
+output $display_apple {
+	resolution 1280x1024 
+	position 0,0   
+}
 
 bindsym $mod+F7 output $display_acer disable
 bindsym $mod+F8 output $display_acer enable
