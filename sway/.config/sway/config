@@ -1,4 +1,5 @@
 #
+#
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
@@ -7,8 +8,6 @@
 ################################################################################
 # Run Services
 ################################################################################
-exec mako
-exec waybar
 # exec - -no-startup-id mpd
 
 ################################################################################
@@ -22,19 +21,32 @@ set $mod Mod4
 # set $up k
 # set $right l
 
+
+set  $workspace_www        1:www
+set  $workspace_mail       2:mail
+set  $workspace_editor     3:editor
+set  $workspace_terminals  4:terminals
+set  $workspace_slack      5:slack
+set  $workspace_signal     6:signal
+# 
+
+
 set $term alacritty
-set $menu exec $term --class=launcher -e ~/.local/bin/sway-launcher-desktop.sh | xargs swaymsg exec --
+set $menu wofi --show=drun | swaymsg exec --
+#set $menu exec $term --class=launcher -e ~/.local/bin/sway-launcher-desktop.sh | xargs swaymsg exec --
 #set $bmenu dmenu_path | bemenu | xargs swaymsg exec
-set $bmenu j4-dmenu-desktop  --dmenu='bemenu -i --nb "#3f3f3f" --nf "#dcdccc" --fn "pango:DejaVu Sans Mono 12"' --term='alacritty'
-for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
+#set $bmenu j4-dmenu-desktop  --dmenu='bemenu -i --nb "#3f3f3f" --nf "#dcdccc" --fn "pango:DejaVu Sans Mono 12"' --term='alacritty'
+#for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
 
 set $wallpaper ~/.config/sway/images/wallpaper.jpg
 set $lockscreenbg ~/.config/sway/images/lockscreen_background.png
 
 default_border none
 
-gaps inner 5
-gaps outer 1
+
+# Set font (default was monospace)
+font pango:SourceCodePro Medium 11
+gaps inner 4
 
 ################################################################################
 # Keybindings
@@ -112,6 +124,7 @@ mode "$mode_launcher" {
 
 include ~/.config/sway/config.d/*
 include ~/.config/sway/config.d/custom/*
+include ./startup
 include /etc/sway/config.d/*
 
 

@@ -14,18 +14,19 @@ set $display_laptop eDP-1
 
 output $display_laptop {
 	resolution 3456x2160@60Hz
-	position 1920,0
+	position 3440,0
 	scale 2
 }
 
 #Acer
 output $display_acer {
-	resolution 3840x2160@60.000Hz
+	#resolution 3840x2160@60.000Hz
+	resolution 3440x1440@100.000Hz
 	#resolution 1920x1080@120Hz
 
 	position 0,0     
 	adaptive_sync on
-	scale 2
+	scale 1
 }
 #Apple
 #output $display_apple {
@@ -41,3 +42,4 @@ workspace  $workspace_mail       output  $display_laptop
 workspace  $workspace_editor     output  $display_acer
 workspace  $workspace_terminals  output  $display_acer
 workspace  $workspace_slack      output  $display_acer
+workspace  $workspace_signal     output  $display_acer
