@@ -62,21 +62,21 @@ font:
   normal:
     #family: DroidSansMono for Powerline
     #family: DroidSansMono Nerd Font
-    #family: DejaVu Sans Mono
-    family: SourceCodePro
+    family: DejaVu Sans Mono
+    #family: SourceCodePro
     #family: monospace
     style: Regular
   bold:
     #family: Droid Sans Mono for Powerline
-    #family: DejaVu Sans Mono
-    family: SourceCodePro
+    family: DejaVu Sans Mono
+    #family: SourceCodePro
     #family: DroidSansMono Nerd Font
     #family: monospace
     style: bold
   italic:
     #family: Droid Sans Mono for Powerline
-    #family: DejaVu Sans Mono
-    family: SourceCodePro
+    family: DejaVu Sans Mono
+    #family: SourceCodePro
     #family: DroidSansMono Nerd Font
     #family: monospace
     style: italic
