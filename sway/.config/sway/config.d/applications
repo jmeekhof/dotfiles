@@ -23,3 +23,5 @@ for_window [app_id="zoom" title="Zoom(.*)"] floating enabled
 for_window [app_id="zoom" title="Settings"] floating enabled
 
 for_window [app_id="firefox" title="Restore Session(.*)"] floating enabled
+for_window [app_id="firefox" title="Sharing Indicator(.*)"] floating enabled
+for_window [app_id="firefox" title="Password Required(.*)"] floating enabled

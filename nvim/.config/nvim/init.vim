@@ -28,6 +28,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'jmeekhof/gsql-vim'
 
 Plug 'majutsushi/tagbar'
 " Plug 'w0rp/ale'
