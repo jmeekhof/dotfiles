@@ -49,35 +49,38 @@ schemes:
       white: '0xeee8d5' # base2
     # Bright colors
     bright:
-      black: '0x002b36' # base03
-      red: '0xcb4b16' # orange
-      green: '0x586e75' # base01
-      yellow: '0x657b83' # base00
-      blue: '0x839496' # base0
-      magenta: '0x6c71c4' # violet
-      cyan: '0x93a1a1' # base1
-      white: '0xfdf6e3' # base3
+      black:    '0x002b36'  #  base03
+      red:      '0xcb4b16'  #  orange
+      green:    '0x586e75'  #  base01
+      yellow:   '0x657b83'  #  base00
+      blue:     '0x839496'  #  base0
+      magenta:  '0x6c71c4'  #  violet
+      cyan:     '0x93a1a1'  #  base1
+      white:    '0xfdf6e3'  #  base3
 colors: *dark
 font:
   normal:
     #family: DroidSansMono for Powerline
     #family: DroidSansMono Nerd Font
-    family: DejaVu Sans Mono
+    #family: DejaVu Sans Mono
+    family: SourceCodePro
     #family: monospace
     style: Regular
   bold:
     #family: Droid Sans Mono for Powerline
-    family: DejaVu Sans Mono
+    #family: DejaVu Sans Mono
+    family: SourceCodePro
     #family: DroidSansMono Nerd Font
     #family: monospace
     style: bold
   italic:
     #family: Droid Sans Mono for Powerline
-    family: DejaVu Sans Mono
+    #family: DejaVu Sans Mono
+    family: SourceCodePro
     #family: DroidSansMono Nerd Font
     #family: monospace
     style: italic
-  size: 8
+  size: 12
 window:
   dimensions:
     columns: 160

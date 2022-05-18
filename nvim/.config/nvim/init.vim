@@ -9,6 +9,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
+" Firefox / Chrome plugin
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
 " Git niceties 
 " Plug 'airblade/vim-gitgutter'
 " Plug 'gregsexton/gitv'
@@ -66,6 +69,13 @@ Plug 'jparise/vim-graphql'
 Plug 'udalov/kotlin-vim'
 
 call plug#end()
+
+if exists('g:started_by_firenvim')
+  set laststatus=0
+  set background=light
+else
+  set laststatus=2
+endif
 
 " Use the system install fzf
 set rtp+=/usr/local/opt/fzf

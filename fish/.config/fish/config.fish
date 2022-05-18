@@ -15,6 +15,10 @@ if [ -f '/var/home/jmeekhof/google-cloud-sdk/path.fish.inc' ]; . '/var/home/jmee
 
 	#bass source "$HOME/.config/fish/conda.sh"
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /home/jmeekhof/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -26,3 +30,9 @@ eval /var/home/jmeekhof/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 #	and not set -q TMUX
 #	tmux new-session -A -s main
 #end
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+set -gx MAMBA_EXE "/home/jmeekhof/.local/bin/micromamba"
+set -gx MAMBA_ROOT_PREFIX "/home/jmeekhof/micromamba"
+eval "/home/jmeekhof/.local/bin/micromamba" shell hook --shell fish --prefix "/home/jmeekhof/micromamba" | source
+# <<< mamba initialize <<<
