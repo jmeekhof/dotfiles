@@ -1,7 +1,11 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR EDITOR:vim
-SETUVAR GIT_EDITOR:vim
+SETUVAR --export CR_PAT:***REMOVED***
+SETUVAR --export DD_API_KEY:***REMOVED***
+SETUVAR --export EDITOR:/usr/bin/nvim
+SETUVAR --export GH_USER:jmeekhof
+SETUVAR GIT_EDITOR:/usr/bin/nvim
+SETUVAR --export INFORMATICA_PROD_GPGKEY:***REMOVED***
 SETUVAR PASSWORD_STORE_GPG_OPTS:\x2d\x2dno\x2dthrow\x2dkeyids
 SETUVAR --export PYENV_ROOT:/var/home/jmeekhof/\x2epyenv
 SETUVAR __fish_init_2_39_8:\x1d
@@ -37,4 +41,5 @@ SETUVAR fish_pager_color_completion:green
 SETUVAR fish_pager_color_description:B3A06D
 SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/var/home/jmeekhof/go/bin\x1e/var/home/jmeekhof/\x2epyenv/bin\x1e/var/home/jmeekhof/\x2elocal/bin\x1e/Users/jmeekho/go/bin\x1e/Users/jmeekho/\x2elocal/bin\x1e/Users/jmeekho/\x2ecabal/bin\x1e/Applications/Postgres\x2eapp/Contents/Versions/latest/bin\x1e/usr/local/opt/fzf/bin
+SETUVAR fish_pager_color_selected_background:\x2dr
+SETUVAR fish_user_paths:/var/home/jmeekhof/\x2epyenv/bin\x1e/var/home/jmeekhof/\x2ecargo/bin\x1e/var/home/jmeekhof/go/bin\x1e/var/home/jmeekhof/\x2elocal/bin\x1e/Users/jmeekho/go/bin\x1e/Users/jmeekho/\x2elocal/bin\x1e/Users/jmeekho/\x2ecabal/bin\x1e/Applications/Postgres\x2eapp/Contents/Versions/latest/bin\x1e/usr/local/opt/fzf/bin
