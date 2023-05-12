@@ -84,6 +84,6 @@ font:
 window:
   dimensions:
     columns: 160
-    lines: 80
+    lines: 70
   decorations: Full
   opacity: 0.97
