@@ -8,9 +8,11 @@
 output * bg $wallpaper fill
 
 # Devices
-set $display_acer DP-2
+set $display_half DP-3
+set $display_acer DP-3
 set $display_apple DP-4
 set $display_laptop eDP-1
+
 
 output $display_laptop {
 	resolution 3456x2160@60Hz
@@ -18,9 +20,16 @@ output $display_laptop {
 	scale 2
 }
 
-#Acer
+# output $display_half {
+# 	resolution 1720x1440@59.999Hz
+# 	position 1280,0     
+# 	adaptive_sync on
+# 	scale 1
+# }
+
+#Acer -- full screen
 output $display_acer {
-	resolution 3440x1440@144.000Hz
+	resolution 3440x1440@100Hz
 	position 1280,0     
 	adaptive_sync on
 	scale 1
@@ -30,9 +39,12 @@ output $display_apple {
 	resolution 1280x1024 
 	position 0,0   
 }
+output DP-5 disable
 
-bindsym $mod+F7 output $display_acer disable
-bindsym $mod+F8 output $display_acer enable
+bindsym  $mod+F7   output  $display_acer  disable                        
+bindsym  $mod+F8   output  $display_acer  enable                         
+bindsym  $mod+F9   output  $display_acer  position  1280  0  resolution  1720x1440
+bindsym  $mod+F10  output  $display_acer  position  1280  0  resolution  3440x1440
 
 workspace  $workspace_www        output  $display_acer
 workspace  $workspace_mail       output  $display_laptop

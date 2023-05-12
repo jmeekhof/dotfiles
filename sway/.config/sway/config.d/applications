@@ -11,7 +11,7 @@ assign  [instance="signal"]        →  workspace  $workspace_slack
 
 ### Change window settings
 
-for_window [window_role="browser"] layout tabbed
+#for_window [window_role="browser"] layout tabbed
 
 for_window [app_id="evolution" title="Compose Message"] floating enabled
 for_window [app_id="evolution" title="Re(.*)"] floating enabled
@@ -25,3 +25,5 @@ for_window [app_id="zoom" title="Settings"] floating enabled
 for_window [app_id="firefox" title="Restore Session(.*)"] floating enabled
 for_window [app_id="firefox" title="Sharing Indicator(.*)"] floating enabled
 for_window [app_id="firefox" title="Password Required(.*)"] floating enabled
+
+for_window [app_id="Alacritty"] floating enabled
