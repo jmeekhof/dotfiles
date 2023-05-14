@@ -1,6 +1,3 @@
-[submodule "tmux/dot-tmux"]
-	path = tmux/dot-tmux
-	url = https://github.com/gpakosz/.tmux.git
 [submodule "neomutt/.config/neomutt/mutt-colors-solarized"]
 	path = neomutt/.config/neomutt/mutt-colors-solarized
 	url = git@github.com:altercation/mutt-colors-solarized.git
