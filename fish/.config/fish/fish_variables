@@ -1,11 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export CR_PAT:***REMOVED***
-SETUVAR --export DD_API_KEY:***REMOVED***
 SETUVAR --export EDITOR:/usr/bin/nvim
 SETUVAR --export GH_USER:jmeekhof
 SETUVAR GIT_EDITOR:/usr/bin/nvim
-SETUVAR --export INFORMATICA_PROD_GPGKEY:***REMOVED***
 SETUVAR PASSWORD_STORE_GPG_OPTS:\x2d\x2dno\x2dthrow\x2dkeyids
 SETUVAR --export PYENV_ROOT:/var/home/jmeekhof/\x2epyenv
 SETUVAR __fish_init_2_39_8:\x1d
