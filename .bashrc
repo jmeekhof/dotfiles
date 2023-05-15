@@ -29,3 +29,5 @@ if [ -d ~/.bashrc.d ]; then
 fi
 
 unset rc
+
+[ -x /usr/bin/fish ] && SHELL=/usr/bin/fish exec fish
