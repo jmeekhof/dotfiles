@@ -1,0 +1,24 @@
+#!/bin/bash
+set -x
+
+OH_MY_FISH=https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install
+FISH=/usr/bin/fish
+
+INSTALL_SCRIPT=$(mktemp)
+
+OMF_CONFIG=~/.config/omf
+OMF_PATH=~/.local/share/omf
+
+echo "Initializing OMF"
+
+mkdir -p $OMF_PATH
+mkdir -p $OMF_CONFIG
+
+curl -o $INSTALL_SCRIPT $OH_MY_FISH
+
+fish $INSTALL_SCRIPT \
+	--path=$OMF_PATH \
+	--config=$OMF_CONFIG \
+	--yes
+
+
