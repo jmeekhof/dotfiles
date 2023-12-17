@@ -9,3 +9,5 @@ if type -q tmux
 		tmux new-session -A -s main
 	end
 end
+
+pyenv init - | source
