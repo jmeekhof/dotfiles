@@ -37,11 +37,18 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'jmeekhof/gsql-vim'
 
+Plug 'neoclide/npm.nvim', {'do' : 'npm install'}
+
 Plug 'majutsushi/tagbar'
 " Plug 'w0rp/ale'
 
 " TOML
 Plug 'cespare/vim-toml'
+
+" HCL
+Plug 'fatih/vim-hclfmt'
+Plug 'jvirtanen/vim-hcl'
+Plug 'hashivim/vim-terraform'
 
 " Terminal, shell plugins
 Plug 'dag/vim-fish'

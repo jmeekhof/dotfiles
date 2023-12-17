@@ -1,4 +1,4 @@
 function rg
-	toolbox run $argv
+	toolbox run rg $argv
 end
 
