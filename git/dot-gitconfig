@@ -1,7 +1,7 @@
 [user]
-    name = Joshua Meekhof
-    email = josh@katanagraph.com
-    signingKey = 0x4B9A53570E6FF703
+    name = Josh Meekhof
+    email = josh.meekhof@charliehealth.com
+    signingkey = 4B9A53570E6FF703
 [alias]
     st = status
     df = diff
@@ -12,6 +12,7 @@
     lol = log --graph --oneline
     lola = log --graph --oneline --all
     lsa = log --graph --oneline --simplify-by-decoration --all
+    mash = push -f
 [color]
     diff = auto
     ui = true
@@ -23,14 +24,10 @@
 [core]
     excludesfile = ~/.gitignore_global
     editor = nvim
-[credential]
-    helper = !aws codecommit credential-helper $@
-    UseHttpPath = true
-    helper = libsecret
 [commit]
     gpgsign = true
 [gpg]
-#    program = /usr/local/bin/gpg
+    program = /usr/local/bin/gpg
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
@@ -50,3 +47,9 @@
 	recurseSubmodules = on-demand
 [submodule]
 	recurse = true
+[credential "https://github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
