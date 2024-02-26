@@ -4,3 +4,6 @@
 [submodule ".config/tmux/oh-my-tmux"]
 	path = .config/tmux/oh-my-tmux
 	url = https://github.com/gpakosz/.tmux
+[submodule "/private/var/joshua/.config/alacritty/themes"]
+	path = /private/var/joshua/.config/alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme
