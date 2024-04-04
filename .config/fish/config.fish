@@ -3,11 +3,11 @@ if status is-interactive
     
 end
 
-if type -q tmux
-	if status is-interactive
-		and not set -q TMUX
-		tmux new-session -A -s main
-	end
-end
+#if type -q tmux
+#	if status is-interactive
+#		and not set -q TMUX
+#		tmux new-session -A -s main
+#	end
+#end
 
 pyenv init - | source
