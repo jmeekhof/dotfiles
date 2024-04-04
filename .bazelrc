@@ -1,2 +1,0 @@
-build --show_timestamps=yes --keep_going --jobs 600
-build --color=yes
