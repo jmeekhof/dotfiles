@@ -32,9 +32,33 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  {
+    'rbong/vim-flog',
+    dependencies = {
+      'tpope/vim-fugitive',
+    },
+  },
+
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",  -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      "nvim-telescope/telescope.nvim", -- optional
+      -- "ibhagwan/fzf-lua",           -- optional
+    },
+    config = true,
+    opts = {
+      graph_style = 'unicode',
+    },
+  },
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+
+  'fatih/vim-go',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -48,7 +72,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -84,7 +108,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -160,6 +184,7 @@ require('lazy').setup({
     },
   },
 
+  --[[
   {
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
@@ -170,7 +195,19 @@ require('lazy').setup({
         -- Set a style preset. 'dark' is default.
         style = 'warm', -- dark, darker, cool, deep, warm, warmer, light
       }
-       require('onedark').load()
+      require('onedark').load()
+    end,
+  },
+  --]]
+
+  {
+    'maxmx03/solarized.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.o.background = 'dark' -- or 'light'
+
+      vim.cmd.colorscheme 'solarized'
     end,
   },
 
@@ -182,8 +219,8 @@ require('lazy').setup({
       options = {
         icons_enabled = true,
         theme = 'auto',
-        component_separators = '|',
-        section_separators = '',
+        -- component_separators = '|',
+        -- section_separators = '',
       },
     },
   },
@@ -202,21 +239,25 @@ require('lazy').setup({
 
   -- Fuzzy Finder (files, lsp, etc)
   {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-      -- Only load if `make` is available. Make sure you have the system
-      -- requirements installed.
-      {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        -- NOTE: If you are having trouble with this installation,
-        --       refer to the README for telescope-fzf-native for more instructions.
-        build = 'make',
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies =
+    {
+      'nvim-telescope/telescope.nvim',
+      branch = '0.1.x',
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+        -- Fuzzy Finder Algorithm which requires local dependencies to be built.
+        -- Only load if `make` is available. Make sure you have the system
+        -- requirements installed.
+        {
+          'nvim-telescope/telescope-fzf-native.nvim',
+          -- NOTE: If you are having trouble with this installation,
+          --       refer to the README for telescope-fzf-native for more instructions.
+          build = 'make',
+          cond = function()
+            return vim.fn.executable 'make' == 1
+          end,
+        },
       },
     },
   },
@@ -244,7 +285,7 @@ vim.wo.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
-
+-- CODEOWNERS
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
@@ -254,6 +295,7 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.breakindent = true
 vim.opt.autoindent = true
 vim.opt.colorcolumn = { 80 }
+vim.opt.wrap = false
 
 -- Save undo history
 vim.o.undofile = true
@@ -392,7 +434,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'bash', 'c', 'cpp', 'dockerfile', 'go', 'hcl', 'javascript', 'lua', 'python', 'rust', 'terraform', 'toml', 'tsx', 'typescript', 'vim', 'vimdoc', 'yaml' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -482,6 +524,7 @@ local on_attach = function(_, bufnr)
     vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
   end, '[C]ode [A]ction')
 
+
   nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
@@ -499,12 +542,21 @@ local on_attach = function(_, bufnr)
   nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
   nmap('<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, '[W]orkspace [L]ist Folders')
+  end,     '[W]orkspace [L]ist Folders')
 
+  -- nmap('<leader>f', vim.lsp.buf.format(), '[F]ormat')
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
+--vim.api.nvim_create_autocmd( {"BufWritePre"},
+-- {
+--  pattern = {"*.tf", "*.tfvars"},
+-- callback = function()
+--   vim.lsp.buf.format()
+--  end
+-- })
+
 end
 
 -- document existing key chains
@@ -551,7 +603,10 @@ local servers = {
   gopls = {},
   lua_ls = {
     Lua = {
-      workspace = { checkThirdParty = false },
+      workspace = {
+        checkThirdParty = false,
+        library = { vim.env.VIMRUNTIME },
+      },
       telemetry = { enable = false },
       -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
       -- diagnostics = { disable = { 'missing-fields' } },
@@ -559,6 +614,8 @@ local servers = {
   },
   pyright = {},
   taplo = {},
+  terraformls = {},
+  yamlls = {},
 }
 
 -- Setup neovim lua configuration
@@ -637,6 +694,17 @@ cmp.setup {
     { name = 'path' },
   },
 }
+
+-- Configure formatting for terraform
+vim.api.nvim_create_autocmd(
+  {"BufWritePre"},
+  {
+    pattern = {"*.tf", "*.tfvars", "*.hcl"},
+    callback = function()
+      vim.lsp.buf.format()
+    end,
+  }
+)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
