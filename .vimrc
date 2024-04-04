@@ -29,6 +29,11 @@ Plug 'liuchengxu/eleline.vim'
 Plug 'altercation/vim-colors-solarized'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
+"
+" Add maktaba and bazel to the runtimepath.
+" (The latter must be installed before it can be used.)
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
 
 " LSP + linters + IDE
 Plug 'prabirshrestha/vim-lsp'
