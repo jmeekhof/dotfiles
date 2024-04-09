@@ -1,13 +1,10 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-    
-end
+bass source /etc/profile
+set -g theme_date_format "+%Y-%m-%d %H:%M"
 
-#if type -q tmux
-#	if status is-interactive
-#		and not set -q TMUX
-#		tmux new-session -A -s main
-#	end
-#end
+set -x GOPATH $HOME/go
+set -x GOBIN $GOPATH/bin
+
+
+set -x GPG_TTY (tty)
 
 pyenv init - | source
