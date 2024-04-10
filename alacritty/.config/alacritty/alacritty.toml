@@ -1,0 +1,30 @@
+import = [
+  "~/.config/alacritty/themes/themes/solarized_dark.toml"
+  ]
+[font]
+size = 13
+
+[font.bold]
+family = "GoMono Nerd Font Mono"
+style = "bold"
+
+[font.italic]
+family = "GoMono Nerd Font Mono"
+style = "italic"
+
+[font.normal]
+family = "GoMono Nerd Font Mono"
+style = "Regular"
+
+
+[shell]
+args = ["--login"]
+program = "/opt/homebrew/bin/fish"
+
+[window]
+decorations = "Full"
+opacity = 0.97
+
+[window.dimensions]
+columns = 160
+lines = 80
