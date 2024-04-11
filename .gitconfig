@@ -7,7 +7,7 @@
     df = diff
     co = checkout
     ci = commit
-    l =	log --graph --pretty=format:'%h - %d %s (%cr) <%an>'
+    l = log --graph --pretty=format:'%h - %d %s (%cr) <%an>'
     lg = log -p
     lol = log --graph --oneline
     lola = log --graph --oneline --all
@@ -27,7 +27,7 @@
 [commit]
     gpgsign = true
 [gpg]
-    program = /usr/local/bin/gpg
+    program = gpg
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
@@ -48,8 +48,6 @@
 [submodule]
 	recurse = true
 [credential "https://github.com"]
-	helper =
-	helper = !/opt/homebrew/bin/gh auth git-credential
+	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
-	helper =
-	helper = !/opt/homebrew/bin/gh auth git-credential
+	helper = !gh auth git-credential
