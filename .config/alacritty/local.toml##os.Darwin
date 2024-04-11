@@ -4,7 +4,6 @@ program = "/opt/homebrew/bin/fish"
 
 [window]
 decorations = "Buttonless"
-opacity = 0.95
 
 [window.dimensions]
 columns = 160
