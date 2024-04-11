@@ -1,6 +1,0 @@
-Use this directory to create local env vars.
-
-BAZELISK_GITHUB_TOKEN
-GITHUB_TOKEN
-
-These types of secrets would be good.
