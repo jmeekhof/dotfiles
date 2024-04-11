@@ -1,1 +1,55 @@
-dotfiles/git/dot-gitconfig
+[user]
+    name = Josh Meekhof
+    email = josh.meekhof@charliehealth.com
+    signingkey = 4B9A53570E6FF703
+[alias]
+    st = status
+    df = diff
+    co = checkout
+    ci = commit
+    l =	log --graph --pretty=format:'%h - %d %s (%cr) <%an>'
+    lg = log -p
+    lol = log --graph --oneline
+    lola = log --graph --oneline --all
+    lsa = log --graph --oneline --simplify-by-decoration --all
+    mash = push -f
+[color]
+    diff = auto
+    ui = true
+[diff]
+    submodule = log
+[push]
+    default = simple
+	recurseSubmodules = check
+[core]
+    excludesfile = ~/.gitignore_global
+    editor = nvim
+[commit]
+    gpgsign = true
+[gpg]
+    program = /usr/local/bin/gpg
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[http]
+	cookiefile = ~/.gitcookies
+[pull]
+	rebase = true
+[cola]
+	spellcheck = false
+[init]
+	defaultBranch = main
+[include]
+  path = .gitconfig_local
+[fetch]
+	recurseSubmodules = on-demand
+[submodule]
+	recurse = true
+[credential "https://github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
