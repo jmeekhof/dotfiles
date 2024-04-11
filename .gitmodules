@@ -1,5 +1,5 @@
 [submodule "neomutt/.config/neomutt/mutt-colors-solarized"]
-	path = neomutt/.config/neomutt/mutt-colors-solarized
+	path = .config/neomutt/mutt-colors-solarized
 	url = git@github.com:altercation/mutt-colors-solarized.git
 [submodule ".config/tmux/oh-my-tmux"]
 	path = .config/tmux/oh-my-tmux
