@@ -1,4 +1,3 @@
-bass source /etc/profile
 set -g theme_date_format "+%Y-%m-%d %H:%M"
 
 set -x GOPATH $HOME/go
