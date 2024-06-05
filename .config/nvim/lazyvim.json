@@ -1,10 +1,9 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.lang.go",
-    "lazyvim.plugins.extras.lang.terraform"
+
   ],
   "news": {
-    "NEWS.md": "5204"
+    "NEWS.md": "4964"
   },
   "version": 6
 }
