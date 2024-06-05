@@ -4,9 +4,6 @@ import = [
   "~/.config/alacritty/local.toml",
 ]
 
-[font]
-size = 13.25
-
 [font.bold]
 family = "GoMono Nerd Font Mono"
 style = "bold"

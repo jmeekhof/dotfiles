@@ -1,3 +1,6 @@
 [shell]
 args = ["--login"]
 program = "/usr/bin/fish"
+
+[font]
+size = 12
