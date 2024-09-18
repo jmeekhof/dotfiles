@@ -2,13 +2,9 @@ return {
 
   {
     { "craftzdog/solarized-osaka.nvim" },
-    {
-
-      "LazyVim/LazyVim",
-      opts = {
-        colorscheme = "solarized-osaka",
-      },
-    },
+    { "LazyVim/LazyVim", opts = {
+      colorscheme = "catppuccin",
+    } },
   },
   --[[
   "folke/tokyonight.nvim",
