@@ -34,3 +34,4 @@ export PYENV_ROOT="$HOME/.pyenv"
 export OPENWEATHERAPI=6ba1e19e19e925eb259418c07d7f8a48
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+. "$HOME/.cargo/env"
