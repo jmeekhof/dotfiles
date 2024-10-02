@@ -1,0 +1,8 @@
+#!/usr/bin/fish
+#
+set FISHER_URL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish
+
+curl -sL $FISHER_URL | source && fisher install jorgebucaran/fisher
+
+fisher install jorgebucaran/hydro
+fisher install PatrickF1/fzf
