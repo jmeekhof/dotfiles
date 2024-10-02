@@ -6,8 +6,4 @@ set -x GOBIN $GOPATH/bin
 
 set -x GPG_TTY (tty)
 
-pyenv init - | source
-
-eval (/opt/homebrew/bin/brew shellenv)
-
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
+fish_vi_key_bindings
