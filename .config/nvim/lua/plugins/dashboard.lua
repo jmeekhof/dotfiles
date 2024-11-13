@@ -1,3 +1,8 @@
+# Disable for now, but keep the content for other places
+if true then
+  return {}
+end
+
 return {
   "nvimdev/dashboard-nvim",
   opts = function()
