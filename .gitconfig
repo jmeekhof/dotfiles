@@ -1,7 +1,7 @@
 [user]
     name = Josh Meekhof
     email = josh.meekhof@charliehealth.com
-    signingkey = 4B9A53570E6FF703
+    signingkey = 0x426BF3F97C4035A8
 [alias]
     st = status
     df = diff
