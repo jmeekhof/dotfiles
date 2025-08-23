@@ -11,7 +11,7 @@ function al --description 'Log into AWS using current dir or argv'
         #     set aws_account "$argv"
         # end
         set aws_account "$argv"
-        echo Logging into "$aws_account" account
+        echo Logging into "$aws_account" account >&2
         set -xg AWS_PROFILE "$aws_account"
     else
         set_aws_profile
@@ -24,8 +24,8 @@ function al --description 'Log into AWS using current dir or argv'
     set info (aws sts get-caller-identity 2>/dev/null)
     set account (echo $info | jq -r '.Account')
     set user (echo $info | jq -r '.UserId')
-    echo "User: $user"
-    echo "Account: $account"
+    echo "User: $user" >&2
+    echo "Account: $account" >&2
     set -xg LOCAL_AWS_ACCOUNT "$account"
     set -xg LOCAL_AWS_USER "$user"
 end

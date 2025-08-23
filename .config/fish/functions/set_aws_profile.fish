@@ -7,6 +7,6 @@ function set_aws_profile --description 'Sets the AWS_PROFILE using current dir'
             set profile found
         end
     end
-    echo Running in $profile
+    echo Running in $profile >&2
     set -xg AWS_PROFILE $profile
 end
