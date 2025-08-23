@@ -26,7 +26,7 @@
   editor = nvim
   pager = less
 [commit]
-    gpgsign = true
+    #gpgsign = true
 [gpg]
     program = gpg
 [filter "lfs"]
