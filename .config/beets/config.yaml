@@ -1,6 +1,6 @@
-directory:  /mnt/sonos
+directory: /mnt/sonos
 
-plugins: fetchart mpdupdate chroma sonosupdate
+plugins: fetchart chroma
 
 import:
   move: yes
@@ -14,4 +14,4 @@ mpd:
   port: 6600
 
 chroma:
-  auto: yes
+  auto: no
