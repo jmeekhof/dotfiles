@@ -3,6 +3,7 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
+include catppuccin-latte
 
 ### Variables
 #
@@ -15,7 +16,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 # Recommends: foot
-set $term alacritty
+set $term ghostty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -27,15 +28,8 @@ set $rofi_cmd rofi \
 # TODO: add window with the next release of rofi-wayland
 set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
-set  $workspace_mail       1:mail
-set  $workspace_www        2:www
-set  $workspace_editor     3:editor
-set  $workspace_terminals  4:terminals
-set  $workspace_slack      5:slack
-set  $workspace_signal     6:signal
+set $workspace_chat 5:chat
 
-default_border none
-gaps inner 4
 
 ### Idle configuration
 #
@@ -117,22 +111,22 @@ gaps inner 4
 # Workspaces:
 #
     # Switch to workspace
-    bindsym $mod+1 workspace $workspace_mail
-    bindsym $mod+2 workspace $workspace_www
-    bindsym $mod+3 workspace $workspace_editor
-    bindsym $mod+4 workspace $workspace_terminals
-    bindsym $mod+5 workspace $workspace_slack
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
     bindsym $mod+6 workspace number 6
     bindsym $mod+7 workspace number 7
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace $workspace_mail
-    bindsym $mod+Shift+2 move container to workspace $workspace_www
-    bindsym $mod+Shift+3 move container to workspace $workspace_editor
-    bindsym $mod+Shift+4 move container to workspace $workspace_terminals
-    bindsym $mod+Shift+5 move container to workspace $workspace_slack
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
     bindsym $mod+Shift+6 move container to workspace number 6
     bindsym $mod+Shift+7 move container to workspace number 7
     bindsym $mod+Shift+8 move container to workspace number 8

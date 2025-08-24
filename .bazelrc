@@ -1,2 +1,6 @@
 build --show_timestamps=yes --keep_going --jobs 600
 build --color=yes
+build --repo_env=CC=clang
+
+common --action_env=DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
+common --override_repository=aspect_rules_lint=/var/home/jam/projects/github.com/aspect-build/rules_lint
