@@ -6,6 +6,7 @@
 set $wallpaper /usr/share/backgrounds/fedora-workstation/futurecity_dark.webp
 output * bg $wallpaper fill
 
+set $acer DP-1
 set $hdmi-display DP-4
 set $display_half  DP-5
 set $display DP-5
@@ -22,12 +23,17 @@ set $display DP-5
 # Turn off the display output
 output $display disable
 
-output $hdmi-display {
-    resolution 3440x1440@60.000Hz
+# output $hdmi-display {
+#     resolution 3440x1440@144.000Hz
+#     position 0,0
+#     adaptive_sync on
+# }
+#
+output $acer {
+    resolution 3440x1440@144.000Hz
     position 0,0
     adaptive_sync on
 }
-#
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
