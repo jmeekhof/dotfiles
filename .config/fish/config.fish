@@ -7,3 +7,5 @@ set -x GPG_TTY (tty)
 
 fish_vi_key_bindings
 mise activate fish | source
+
+source (pack completion --shell fish)
