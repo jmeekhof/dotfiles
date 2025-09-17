@@ -7,7 +7,7 @@ function ecr -a AWS_ENV
             set PROFILE stage
             set AWS_ACCT 458622101932
         case '*'
-            set PROFILE prod
+            set PROFILE prod-phi
             set AWS_ACCT 505480154940
     end
     aws ecr get-login-password --region us-east-2 --profile=$PROFILE | docker login --username AWS --password-stdin $AWS_ACCT.dkr.ecr.us-east-2.amazonaws.com
