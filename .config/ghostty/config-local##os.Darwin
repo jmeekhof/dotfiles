@@ -1,0 +1,3 @@
+
+app-notifications = no-clipboard-copy
+command = /opt/homebrew/bin/fish
